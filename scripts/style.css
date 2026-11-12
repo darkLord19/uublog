@@ -1,6 +1,8 @@
 :root{--bg:#f4f3ef;--fg:#161616;--mute:#5b5a55;--soft:#3d3c38;--line:#d9d7cf;--accent:#d63a1c;--on-accent:#fff;--code-bg:#161616;--code-fg:#f4f3ef;--inline:#e8e6df;
 --h-kw:#ff8a6a;--h-str:#a3c27d;--h-com:#8f8c84;--h-num:#e0b15c;--h-fn:#7fb2e0;
---serif:Fraunces,Georgia,serif;--sans:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace}
+--serif:"Atkinson Hyperlegible Next",system-ui,-apple-system,"Segoe UI",sans-serif;--sans:"Atkinson Hyperlegible Next",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+@font-face{font-family:"Atkinson Hyperlegible Next";font-style:normal;font-weight:200 800;font-display:swap;src:url(__BASE__/fonts/atkinson-next.woff2) format("woff2")}
+@font-face{font-family:"Atkinson Hyperlegible Next";font-style:italic;font-weight:200 800;font-display:swap;src:url(__BASE__/fonts/atkinson-next-italic.woff2) format("woff2")}
 @media(prefers-color-scheme:dark){:root{--bg:#151514;--fg:#ecebe6;--mute:#9a988f;--soft:#c4c2ba;--line:#2e2d2a;--accent:#ff6a4a;--on-accent:#151514;--code-bg:#1f1e1c;--code-fg:#ecebe6;--inline:#242321}}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 18px/1.6 var(--sans);min-height:100vh;display:flex;flex-direction:column;-webkit-text-size-adjust:100%}
@@ -56,7 +58,7 @@ p code,li code,td code,h2 code,h3 code{background:var(--inline);padding:.1em .35
 .hljs-keyword,.hljs-selector-tag,.hljs-built_in,.hljs-deletion{color:var(--h-kw)}.hljs-string,.hljs-regexp,.hljs-addition{color:var(--h-str)}
 .hljs-comment,.hljs-quote,.hljs-meta{color:var(--h-com);font-style:italic}.hljs-number,.hljs-literal,.hljs-symbol,.hljs-bullet{color:var(--h-num)}
 .hljs-title,.hljs-section,.hljs-attr,.hljs-name,.hljs-type,.hljs-variable{color:var(--h-fn)}
-blockquote{margin:8px 0;padding:0 0 0 20px;border-left:3px solid var(--accent);font:800 26px/1.35 var(--serif);font-variation-settings:"opsz" 144}
+blockquote{margin:8px 0;padding:0 0 0 20px;border-left:3px solid var(--accent);font:700 24px/1.4 var(--serif);font-variation-settings:"opsz" 144}
 blockquote p{margin:0}blockquote p+p{margin-top:.6em}
 img{max-width:100%;height:auto;border-radius:6px;display:block}figure{margin:0}figcaption{color:var(--mute);font-size:14px;margin-top:8px}
 .table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:16px;line-height:1.5}

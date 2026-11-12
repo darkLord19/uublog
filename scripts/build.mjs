@@ -59,8 +59,8 @@ const url = p => `${BASE}/${p}${p && !p.endsWith('/') ? '/' : ''}`;
 const postUrl = p => url(p.path);
 
 // ---------- Layout ----------
-const css = readFileSync('scripts/style.css', 'utf8');
-const FONTS = 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@144,800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap';
+// Fonts are self-hosted (scripts/fonts → dist/fonts): no third-party requests.
+const css = readFileSync('scripts/style.css', 'utf8').replaceAll('__BASE__', BASE);
 
 const JS = `document.addEventListener('click',e=>{const b=e.target.closest('.copy');if(!b)return;
 navigator.clipboard.writeText(b.parentElement.querySelector('code').innerText).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy',1500)})})`;
@@ -75,7 +75,7 @@ const page = ({ title, desc = site.description, path = '', cur = '', inner, type
 <meta name="description" content="${esc(desc)}"><meta name="author" content="${esc(site.title)}">
 <link rel="canonical" href="${ORIGIN}${url(path)}"><link rel="alternate" type="application/rss+xml" title="${esc(site.title)}" href="${BASE}/feed.xml">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:type" content="${type}"><meta property="og:url" content="${ORIGIN}${url(path)}">
-${extraHead}<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="${FONTS}">
+${extraHead}<link rel="preload" href="${BASE}/fonts/atkinson-next.woff2" as="font" type="font/woff2" crossorigin>
 <style>${css}</style></head><body>
 <div class="wrap"><nav class="top" aria-label="Main"><a href="https://umang.me">← umang parmar</a>
 <div>${link(url('archives'), 'archives', cur, 'archives')}${activeCats.map(c => link(url(`category/${c}`), catName(c).toLowerCase(), cur, c)).join('')}<a href="${BASE}/feed.xml">rss</a></div></nav>
@@ -102,6 +102,8 @@ const out = (path, html, file = 'index.html') => { mkdirSync(`dist/${path}`, { r
 const redirect = (from, to) => out(from, `<!doctype html><meta charset="utf-8"><title>Redirecting…</title><link rel="canonical" href="${to}"><meta http-equiv="refresh" content="0;url=${to}"><a href="${to}">Moved here</a>`);
 mkdirSync('dist', { recursive: true });
 copyFileSync('scripts/letters.js', 'dist/letters.js');
+mkdirSync('dist/fonts', { recursive: true });
+for (const f of readdirSync('scripts/fonts')) copyFileSync(`scripts/fonts/${f}`, `dist/fonts/${f}`);
 
 // Posts grouped by year: label on the left, rows on the right.
 const list = items => {
