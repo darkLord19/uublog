@@ -1,0 +1,18 @@
+[
+  {
+    "id": 6,
+    "post_id": 2,
+    "author": "DP",
+    "msg": "open terminal and type it:  sudo tee /etc/modprobe.d/rtl8723be.conf <<< \"options rtl8723be ant_sel=1\"  And reboot !  if still not solve then try to change ant_sel=2",
+    "created_date": "2018-08-02T18:50:19.454798+00:00",
+    "comment_visibility": true
+  },
+  {
+    "id": 7,
+    "post_id": 2,
+    "author": "darkLord",
+    "msg": "I have already tried it. It did increase the performance but not much. Even with this workaround, I was getting max 6 mbps bandwidth and 20-25ms latency.",
+    "created_date": "2018-08-03T09:30:22.587776+00:00",
+    "comment_visibility": true
+  }
+]

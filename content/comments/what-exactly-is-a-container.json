@@ -1,0 +1,42 @@
+[
+  {
+    "id": 9,
+    "post_id": 6,
+    "author": "Britt Vermeulen",
+    "msg": "bypassing",
+    "created_date": "2025-01-23T16:49:35.006863+00:00",
+    "comment_visibility": true
+  },
+  {
+    "id": 10,
+    "post_id": 6,
+    "author": "Lisa Koster",
+    "msg": "overriding",
+    "created_date": "2025-01-23T17:10:07.349788+00:00",
+    "comment_visibility": true
+  },
+  {
+    "id": 11,
+    "post_id": 6,
+    "author": "Sport",
+    "msg": "Director",
+    "created_date": "2025-01-23T17:11:48.756251+00:00",
+    "comment_visibility": true
+  },
+  {
+    "id": 12,
+    "post_id": 6,
+    "author": "Abraham Bąk",
+    "msg": "GB",
+    "created_date": "2025-05-10T07:28:50.693998+00:00",
+    "comment_visibility": true
+  },
+  {
+    "id": 13,
+    "post_id": 6,
+    "author": "Kobe Ortiz",
+    "msg": "Rwanda Franc",
+    "created_date": "2025-05-10T07:32:44.101289+00:00",
+    "comment_visibility": true
+  }
+]

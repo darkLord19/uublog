@@ -1,0 +1,3 @@
+{ "name": "ublog-static", "private": true, "type": "module",
+  "scripts": { "build": "node scripts/build.mjs", "preview": "npx serve dist" },
+  "dependencies": { "marked": "12.0.2" } }

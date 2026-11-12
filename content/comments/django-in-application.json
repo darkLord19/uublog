@@ -1,0 +1,34 @@
+[
+  {
+    "id": 2,
+    "post_id": 1,
+    "author": "Himadri Pandya",
+    "msg": "Getting some inspiration from it!",
+    "created_date": "2018-07-29T15:29:12.004509+00:00",
+    "comment_visibility": true
+  },
+  {
+    "id": 3,
+    "post_id": 1,
+    "author": "Dear Friend",
+    "msg": "Hi U, nice to see you!",
+    "created_date": "2018-07-29T15:58:48.539128+00:00",
+    "comment_visibility": true
+  },
+  {
+    "id": 4,
+    "post_id": 1,
+    "author": "Kane Adams",
+    "msg": "Finally after a long wait. Congratulations 😉",
+    "created_date": "2018-07-29T18:07:14.475211+00:00",
+    "comment_visibility": true
+  },
+  {
+    "id": 5,
+    "post_id": 1,
+    "author": "ekta",
+    "msg": "You go Ms. chandler!",
+    "created_date": "2018-07-30T14:28:49.30834+00:00",
+    "comment_visibility": true
+  }
+]
