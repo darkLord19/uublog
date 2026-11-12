@@ -145,7 +145,7 @@ posts.forEach((p, i) => {
 });
 
 // Home, categories
-out('', page({ title: site.title, cur: 'home', inner: `<h1>${esc(site.title)}</h1><p class="tagline">${esc(site.tagline)}</p>${list(posts)}` }));
+out('', page({ title: site.title, cur: 'home', inner: list(posts) }));
 for (const c of Object.keys(site.categories)) {
   const items = posts.filter(p => p.category === c);
   out(`category/${c}`, page({ title: `${catName(c)} · ${site.title}`, path: `category/${c}`, cur: c,
