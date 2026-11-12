@@ -15,7 +15,7 @@ jobs:
       - run: npm run build
         env:
           BASE_PATH: /uublog
-          SITE_URL: https://darklord19.github.io
+          SITE_URL: https://umang.me
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
   deploy:
