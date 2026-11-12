@@ -1,0 +1,22 @@
+name: Approve comment
+on:
+  issues: { types: [labeled] }
+permissions: { contents: write, issues: write, actions: write }
+jobs:
+  approve:
+    if: github.event.label.name == 'approved' && contains(github.event.issue.labels.*.name, 'comment')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: node scripts/approve.mjs
+        env: { ISSUE_BODY: "${{ github.event.issue.body }}" }
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/comments && git commit -m "Add approved comment (#${{ github.event.issue.number }})"
+          git pull --rebase -q && git push
+          gh workflow run pages.yml
+          gh issue close ${{ github.event.issue.number }} --comment "Published."
+        env: { GH_TOKEN: "${{ github.token }}" }
