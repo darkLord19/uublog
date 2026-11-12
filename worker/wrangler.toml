@@ -1,7 +1,0 @@
-name = "blog-comments"
-main = "comment-worker.js"
-compatibility_date = "2025-01-01"
-
-[vars]
-REPO = "darkLord19/uublog"
-ALLOWED_ORIGIN = "https://blog.umang.me"
