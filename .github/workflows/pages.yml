@@ -14,8 +14,7 @@ jobs:
       - run: npm ci
       - run: npm run build
         env:
-          BASE_PATH: /uublog
-          SITE_URL: https://umang.me
+          SITE_URL: https://blog.umang.me
       - uses: actions/upload-pages-artifact@v3
         with: { path: dist }
   deploy:
