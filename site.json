@@ -16,6 +16,6 @@
     "random": "Random"
   },
   "comments": {
-    "endpoint": ""
+    "endpoint": "https://blog-comments-umber-eight.vercel.app/api/comment"
   }
 }
