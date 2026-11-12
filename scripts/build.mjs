@@ -81,7 +81,7 @@ ${extraHead}<link rel="preload" href="${BASE}/fonts/atkinson-next.woff2" as="fon
 <div>${link(url('archives'), 'archives', cur, 'archives')}${activeCats.map(c => link(url(`category/${c}`), catName(c).toLowerCase(), cur, c)).join('')}<a href="${BASE}/feed.xml">rss</a></div></nav>
 ${inner}</div>
 <footer><a href="${site.github}" target="_blank" rel="noopener">github</a> · <a href="${site.linkedin}" target="_blank" rel="noopener">linkedin</a> · <a href="${BASE}/feed.xml">rss</a><br>Copyright &copy; ${esc(site.title)} ${new Date().getFullYear()}</footer>
-<script>${JS}${FORM_JS}</script>${letters ? `<script src="${BASE}/letters.js" defer></script>` : ''}</body></html>`;
+<script>${JS};\n${FORM_JS}</script>${letters ? `<script src="${BASE}/letters.js" defer></script>` : ''}</body></html>`;
 
 // Throwable letters: static, readable markup that letters.js enhances.
 const lettersBox = (word, { max, hw, hn, visible = false, center = false, label }) =>
