@@ -107,7 +107,7 @@ const page = ({ title, desc = site.description, path = '', cur = '', inner, type
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:type" content="${type}"><meta property="og:url" content="${ORIGIN}${url(path)}">
 ${extraHead}<style>${css}</style></head><body>
 <header><div class="in"><a class="brand" href="${url('')}">${esc(site.title)}</a>
-<nav aria-label="Main">${link(url(''), 'Home', cur, 'home')}${link(url('about'), 'About', cur, 'about')}${link(url('archives'), 'Archives', cur, 'archives')}
+<nav aria-label="Main">${link(url(''), 'Home', cur, 'home')}${link(url('archives'), 'Archives', cur, 'archives')}
 <span class="cats">${activeCats.map(c => link(url(`category/${c}`), catName(c), cur, c)).join('')}</span></nav></div></header>
 <main>${inner}</main>
 <footer><div class="in"><a href="${site.github}" target="_blank" rel="noopener">github</a> · <a href="${site.linkedin}" target="_blank" rel="noopener">linkedin</a> · <a href="${BASE}/feed.xml">rss</a><br>Copyright &copy; ${esc(site.title)} ${new Date().getFullYear()}</div></footer>
@@ -152,11 +152,6 @@ for (const c of Object.keys(site.categories)) {
     inner: `<h1>${esc(catName(c))}</h1>${items.length ? list(items) : '<p class="meta">Nothing here yet.</p>'}` }));
 }
 
-// About
-out('about', page({ title: `About · ${site.title}`, path: 'about', cur: 'about', desc: `About ${site.title}`,
-  inner: `<h1>About</h1><p class="tagline">${esc(site.tagline)}</p>${site.about.map(t => `<p>${esc(t)}</p>`).join('')}
-<p>Find me on <a href="${site.github}" target="_blank" rel="noopener">GitHub</a> or <a href="${site.linkedin}" target="_blank" rel="noopener">LinkedIn</a>.</p>` }));
-
 // Archives (year → month → posts)
 const years = [...new Set(posts.map(p => new Date(p.published_date).getUTCFullYear()))];
 out('archives', page({ title: `Archives · ${site.title}`, path: 'archives', cur: 'archives',
@@ -174,7 +169,7 @@ writeFileSync('dist/404.html', page({ title: `Not found · ${site.title}`, inner
 const feedItems = posts.map(p => `<item><title>${esc(p.title)}</title><link>${ORIGIN}${postUrl(p)}</link><guid>${ORIGIN}${postUrl(p)}</guid><pubDate>${new Date(p.published_date).toUTCString()}</pubDate><description>${esc(excerpt(p.body, 400))}</description></item>`).join('');
 writeFileSync('dist/feed.xml', `<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>${esc(site.title)}</title><link>${ORIGIN}${url('')}</link><description>${esc(site.description)}</description>${feedItems}</channel></rss>`);
 redirect('feed', `${BASE}/feed.xml`);
-const urls = ['', 'about', 'archives', ...activeCats.map(c => `category/${c}`), ...posts.map(p => p.path)];
+const urls = ['', 'archives', ...activeCats.map(c => `category/${c}`), ...posts.map(p => p.path)];
 writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map(u => `<url><loc>${ORIGIN}${url(u)}</loc></url>`).join('')}</urlset>`);
 writeFileSync('dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${ORIGIN}${BASE}/sitemap.xml\n`);
 
