@@ -72,7 +72,7 @@ nav{font:.85rem system-ui,sans-serif;margin-top:.5rem;display:flex;flex-wrap:wra
 nav a{color:var(--mute);text-decoration:none}nav a:hover,nav a[aria-current]{color:var(--accent)}
 .cats{display:inline-flex;gap:.8rem;flex-wrap:wrap}
 a{color:var(--accent)}h1{line-height:1.25;margin-bottom:.3rem}h2,h3,h4{line-height:1.3;margin-top:2rem}
-.meta{color:var(--mute);font-size:.85rem;font-family:system-ui,sans-serif}.tagline{color:var(--mute);font-style:italic}
+.meta{color:var(--mute);font-size:.85rem;font-family:system-ui,sans-serif}
 .anchor{margin-left:-1.1rem;padding-right:.35rem;text-decoration:none;opacity:0;font-weight:400}h2:hover .anchor,h3:hover .anchor,h4:hover .anchor,.anchor:focus{opacity:.6}
 article p,article li{overflow-wrap:break-word}
 .code{position:relative;margin:1.2rem 0}.code pre{overflow:auto;background:var(--code);padding:1rem;border-radius:6px;font-size:.85rem;line-height:1.55;margin:0;border:1px solid var(--line)}
